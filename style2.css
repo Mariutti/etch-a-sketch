@@ -23,18 +23,25 @@
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
     transition: opacity .2s;
   }
+#gridBtn{
+    margin: 10px auto;
+}
+
 .container{
     height: 800px;
     width: 800px;
     background-color: lightgray;
-    margin: 50px auto;
+    margin: 30px auto;
     display: flex;
     flex-wrap: wrap;
     gap: 0;
     justify-content: stretch;
 }
 
-.grid{
-    background-color: gray;
-    border: 1px solid black;
+.divGrid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    border: 1px solid lightblue;
 }
