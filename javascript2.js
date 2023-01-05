@@ -25,5 +25,10 @@ function createDivs(){
         divContainer.appendChild(divGrid);
         divGrid.style.height = `${800/counter.value}px`;
         divGrid.style.width = `${800/counter.value}px`;
+        divGrid.addEventListener('mouseover', draw)
     }
 }
+
+function draw(e) {
+    e.target.classList.add("div-grid-colored");
+  }
