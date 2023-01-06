@@ -14,7 +14,15 @@ counter.oninput = function(){
 const divContainer = document.querySelector('.container');
 const containerStyles = window.getComputedStyle(divContainer);
 const containerHeight = containerStyles.getPropertyValue('height').slice(0, -2);
+containerHeight.oninput = function(){
+    containerHeight = this.value
+}
+
 const containerWidth = containerStyles.getPropertyValue('width').slice(0, -2);
+
+containerWidth.oninput = function(){
+    containerWidth = this.value
+}
 
 const gridBtn = document.querySelector('#gridBtn');
 gridBtn.addEventListener('click', createDivs);
