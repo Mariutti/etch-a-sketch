@@ -39,6 +39,11 @@ function createDivs(){
     }
 }
 
+
 function draw(e) {
     e.target.classList.add("div-grid-colored");
-  }
+}
+
+function drawRainbow(e) {
+    e.target.classList.add("div-grid-rainbow");
+}

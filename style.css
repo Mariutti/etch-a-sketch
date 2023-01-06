@@ -58,7 +58,12 @@
     -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
     transition: opacity 0.2s;
   }
-  #gridBtn {
+
+  #rainbowDiv{
+    display: flex;
+    justify-content: stretch;
+  }
+  .btn {
     margin: 4px auto;
     padding: 5px 10px;
   }
@@ -84,6 +89,9 @@
   .div-grid-colored {
     background-color: red;
   }
+
+
+ 
   
   @media only screen and (max-width: 800px) {
     .container {
