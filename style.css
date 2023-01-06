@@ -2,41 +2,92 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
   }
   
-  .project-container {
-    max-width: 1200px;
-    min-width: 800px;
-    background-color: lightblue;
+  body{
+    background-color: #A9DAF8;
   }
   
-  .button {
-    padding: 0.3rem 0.5rem;
-    width: 7rem;
-  }
-  
-  #btnResetDraw {
-    display: block;
+  header{
     margin: 0 auto;
+    min-width: 900px;
+    width: 60vw;
+    border-bottom: 5px solid navy;
   }
   
-  .grid-container {
-    margin: 30px auto;
-    display: grid;
-    background-color: #2196f3;
-    padding: 10px;
+  header > h1{
+    margin: 5px auto;
+    text-align: center;
+    font-size: 3rem;
   }
   
-  .div-grid {
-    margin: 0 auto;
-    padding: auto;
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    width: 15px;
-    height: 15px;
+  header > h1::after ,
+  header > h1::before{
+    content: ' --- '
+  }
+  
+  section{
+    width: 60vw;
+    height: 80vh;
+    min-height: 900px;
+    min-width: 900px;
+    background-color: #235789;
+    margin: 2px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px 5px rgb(0,0,0,0.5); 
+  }
+  
+  .slidecontainer {
+    margin: 2px auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .slider {
+    margin: 2px auto;
+  
+    width: 50%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #185c94; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+    transition: opacity 0.2s;
+  }
+  #gridBtn {
+    margin: 4px auto;
+    padding: 5px 10px;
+  }
+  
+  .container {
+    height: 750px;
+    width: 750px;
+    background-color: lightgray;
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    justify-content: stretch;
+  }
+  
+  .divGrid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid RGB(173, 216, 230, 0.3);
   }
   
   .div-grid-colored {
     background-color: red;
   }
   
+  @media only screen and (max-width: 800px) {
+    .container {
+        height: 400px;
+        width: 400px;
+        }
+  }

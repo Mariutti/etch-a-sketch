@@ -1,55 +1,36 @@
-const gridSelector = document.querySelector("#grid-selector");
+const divCounter = document.querySelector('#divCounter');
+const paraCounter = document.createElement('p');
+divCounter.appendChild(paraCounter);
 
-const gridContainer = document.querySelector(".grid-container");
+const counter = document.querySelector('#slider');
 
-const btnGrid = document.querySelector("#btnGrid");
-btnGrid.addEventListener("click", createGrid);
+paraCounter.textContent = `${counter.value} X ${counter.value}`
 
-const btnReset = document.querySelector("#btnReset");
-btnReset.addEventListener("click", resetGrid);
-
-function createGrid() {
-  const btnResetDraw = document.querySelector("#btnResetDraw");
-  btnResetDraw.addEventListener("click", ResetDraw);
-
-  gridContainer.innerHTML = "";
-  const gridValue = gridSelector.value;
-  for (let i = 1; i <= gridValue; i++) {
-    for (let i = 1; i <= gridValue; i++) {
-      const divInGrid = document.createElement("div");
-      divInGrid.classList.add("div-grid");
-      divInGrid.addEventListener("mouseover", draw);
-      gridContainer.style.gridTemplateColumns = `repeat(${gridValue}, 1fr)`;
-      gridContainer.append(divInGrid);
-      gridContainer.style.width = `${16 * gridValue}px`;
-      gridContainer.style.height = `${16 * gridValue}px`;
-    }
-  }
-
-  function ResetDraw() {
-    gridContainer.innerHTML = "";
-    for (let i = 1; i <= gridValue; i++) {
-      for (let i = 1; i <= gridValue; i++) {
-        const divInGrid = document.createElement("div");
-        divInGrid.classList.add("div-grid");
-        divInGrid.addEventListener("mouseover", draw);
-        gridContainer.style.gridTemplateColumns = `repeat(${gridValue}, 1fr)`;
-        gridContainer.append(divInGrid);
-        gridContainer.style.width = `${16 * gridValue}px`;
-        gridContainer.style.height = `${16 * gridValue}px`;
-      }
-    }
-  }
+const container = document.querySelector('.container');
+counter.oninput = function(){
+    paraCounter.textContent = `${this.value} X ${this.value}`;
 }
 
-function resetGrid() {
-  gridSelector.value = "";
-  gridContainer.innerHTML = "";
-  gridContainer.style.width = "0";
-  gridContainer.style.height = "0";
-  gridContainer.style.padding = "0";
+const divContainer = document.querySelector('.container');
+const containerStyles = window.getComputedStyle(divContainer);
+const containerHeight = containerStyles.getPropertyValue('height').slice(0, -2);
+const containerWidth = containerStyles.getPropertyValue('width').slice(0, -2);
+
+const gridBtn = document.querySelector('#gridBtn');
+gridBtn.addEventListener('click', createDivs);
+
+function createDivs(){
+    divContainer.innerHTML = '';
+    for(let i = 1; i <= Math.pow(counter.value, 2); i++){
+        const divGrid = document.createElement('div');
+        divGrid.className = 'divGrid';
+        divContainer.appendChild(divGrid);
+        divGrid.style.height = `${containerHeight/counter.value}px`;
+        divGrid.style.width = `${containerWidth/counter.value}px`;
+        divGrid.addEventListener('mouseover', draw)
+    }
 }
 
 function draw(e) {
-  e.target.classList.add("div-grid-colored");
-}
+    e.target.classList.add("div-grid-colored");
+  }
